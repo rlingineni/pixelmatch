@@ -78,6 +78,11 @@ const diff = new PNG({width, height});
 pixelmatch(img1.data, img2.data, diff.data, width, height, {threshold: 0.1});
 
 fs.writeFileSync('diff.png', PNG.sync.write(diff));
+
+//calculate error % 
+let error = Math.round(100 * 100 * diffs / (width * height)) / 100;
+console.log(`error % = ${error}` );
+
 ```
 
 ### Browsers
